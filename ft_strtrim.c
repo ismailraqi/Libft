@@ -74,7 +74,7 @@ char *ft_strtrim(char const *s1, char const *set)
 }
 int main(void)
 {
-    char *str = " ss Hellossl  12d ";
+    char *str = " ss Helloss0l sssssss 12d ";
     char *set = "s 12d";
     char *strrr = ft_strtrim(str,set);
     printf("%s\n",strrr);
