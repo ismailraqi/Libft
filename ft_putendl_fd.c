@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iraqi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/13 01:48:52 by iraqi             #+#    #+#             */
-/*   Updated: 2021/11/13 01:48:53 by iraqi            ###   ########.fr       */
+/*   Created: 2021/11/13 01:58:46 by iraqi             #+#    #+#             */
+/*   Updated: 2021/11/13 02:02:26 by iraqi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-int memcmp(const void *s1, const void *s2, size_t n)
-{
-    unsigned char *fSrc;
-    unsigned char *sSrc;
-    size_t i;
 
-    fSrc = (unsigned char *)s1;
-    sSrc = (unsigned char *)s2;
-    i = 0;
-    while (fSrc != NULL && sSrc != NULL && i < n)
-    {
-        if (fSrc[i] != sSrc[i])
-            return (fSrc[i] - sSrc[i]);
-        i++;
-    }
-    return (0);
+#include "libft.h"
+
+void ft_putendl_fd(char *s, int fd)
+{
+    if (s == NULL || (fd < 0 && fd > 2))
+        return;
+    ft_putstr_fd(s,fd);
+    ft_putchar_fd('\n',fd);
 }

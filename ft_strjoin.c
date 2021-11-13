@@ -1,14 +1,17 @@
-#include "libft.h"
-#include <stdlib.h>
-int ft_strlen(const char *s)
-{
-    int i;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iraqi <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/13 01:51:55 by iraqi             #+#    #+#             */
+/*   Updated: 2021/11/13 01:51:56 by iraqi            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-    i = 0;
-    while (s[i] != '\0')
-        i++;
-    return (i);
-}
+#include "libft.h"
+
 char *ft_strjoin(char const *s1, char const *s2)
 {
     char *news;
@@ -39,10 +42,4 @@ char *ft_strjoin(char const *s1, char const *s2)
     news[i] = '\0'; 
     return(news);
 }
-int main(void)
-{
-    char *s1 = "str1";
-    char *s2 = "str2";
-    printf("%s", ft_strjoin(s1,s2));
-    return (0);
-}
+

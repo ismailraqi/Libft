@@ -1,8 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iraqi <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/13 01:57:05 by iraqi             #+#    #+#             */
+/*   Updated: 2021/11/13 01:57:06 by iraqi            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-void	ft_putchar(char c, int fd)
-{
-	write(fd, &c, sizeof(char));
-}
 
 void	ft_putnbr_fd(int nb, int fd)
 {
@@ -13,16 +21,16 @@ void	ft_putnbr_fd(int nb, int fd)
 	lnb = nb;
 	if (lnb < 0)
 	{
-		ft_putchar('-', fd);
+		ft_putchar_fd('-', fd);
 		lnb *= -1;
 	}
 	if (lnb > 9)
 	{
-		ft_putnbr(lnb / 10, fd);
-		ft_putnbr(lnb % 10, fd);
+		ft_putnbr_fd(lnb / 10, fd);
+		ft_putnbr_fd(lnb % 10, fd);
 	}
 	else
 	{
-		ft_putchar(lnb + 48, fd);
+		ft_putchar_fd(lnb + 48, fd);
 	}
 }

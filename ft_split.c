@@ -1,5 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iraqi <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/13 01:53:49 by iraqi             #+#    #+#             */
+/*   Updated: 2021/11/13 01:53:50 by iraqi            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-#include <stdlib.h>
 int ft_wordcount(char *src, char del)
 {
     size_t i;
@@ -69,10 +80,3 @@ char **ft_split(char const *s, char c)
     return (res);
 }
 
-int main (void)
-{
-    char *src = "12313 212 1221 112 ";
-    char c = ' ';
-    ft_split(src,c);
-    return (0);
-}

@@ -1,4 +1,16 @@
-#include "stdio.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iraqi <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/13 01:52:54 by iraqi             #+#    #+#             */
+/*   Updated: 2021/11/13 01:52:55 by iraqi            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 int ft_is(char src, char *set)
 {
     size_t i;
@@ -71,12 +83,4 @@ char *ft_strtrim(char const *s1, char const *set)
     str[j]='\0';
     str = ft_revtrim(str, set, ft_strlen(str));
     return (str);
-}
-int main(void)
-{
-    char *str = " ss Helloss0l sssssss 12d ";
-    char *set = "s 12d";
-    char *strrr = ft_strtrim(str,set);
-    printf("%s\n",strrr);
-    return (0);
 }
