@@ -13,5 +13,15 @@
 NAME   = libft.a
 CC 	   = gcc
 CFLAGS = -Werror -Wall -Wextra
+SRC = $(wildcard *.c) 
+OBJS = $(SRC:.c=.o) 
 
 
+
+all : $(NAME)
+
+$(NAME) : $(OBJS)
+	ar rc $(NAME) $(OBJS)
+
+%.o : %.c
+	$(CC) $(CFLAGS) -o $@ -c $<
