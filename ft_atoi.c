@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iraqi <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: iraqi <iraqi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 01:50:12 by iraqi             #+#    #+#             */
-/*   Updated: 2021/11/13 01:50:14 by iraqi            ###   ########.fr       */
+/*   Updated: 2021/11/14 23:59:19 by iraqi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,4 @@ int	ft_atoi(char *str)
 	}
 	return (number * flag);
 }
-#include <stdio.h>
-int main ()
-{
-	printf("%d\n", ft_atoi("-123acv12"));
-    printf("%d", atoi("-123acv12"));
 
-}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iraqi <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: iraqi <iraqi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 01:43:37 by iraqi             #+#    #+#             */
-/*   Updated: 2021/11/13 01:43:38 by iraqi            ###   ########.fr       */
+/*   Updated: 2021/11/14 21:10:16 by iraqi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@ void ft_bzero(void *s, size_t n)
 {
     unsigned char *src;
 
-    src = (unsigned char)s;
+    src = (unsigned char *)s;
     while (n--)
         *(src++) = '\0';
 }

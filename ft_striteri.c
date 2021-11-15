@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iraqi <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: iraqi <iraqi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 01:55:27 by iraqi             #+#    #+#             */
-/*   Updated: 2021/11/13 01:55:28 by iraqi            ###   ########.fr       */
+/*   Updated: 2021/11/14 23:05:56 by iraqi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void ft_striteri(char *s, void (*f)(unsigned int, char*))
     size_t i;
 
     if(s == NULL || f == NULL)
-        return;
+        return ;
     i = 0;
     while (s[i] != '\0')
     {
