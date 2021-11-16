@@ -6,7 +6,7 @@
 /*   By: iraqi <iraqi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 01:53:49 by iraqi             #+#    #+#             */
-/*   Updated: 2021/11/15 04:22:34 by iraqi            ###   ########.fr       */
+/*   Updated: 2021/11/15 22:18:09 by iraqi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ char **ft_split(char const *s, char c)
 }
  int main(void)
  {
-    char *s = "\0aa\0bbb";
+    char *s = "aa\0bbb";
 	char **result = ft_split(s, '\0');
 
     printf("%s\n", result[0]);
