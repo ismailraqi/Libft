@@ -6,11 +6,12 @@
 /*   By: iraqi <iraqi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 01:52:54 by iraqi             #+#    #+#             */
-/*   Updated: 2021/11/15 03:37:48 by iraqi            ###   ########.fr       */
+/*   Updated: 2021/11/18 03:10:39 by iraqi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 int ft_is(char src, const char *set)
 {
     size_t i;
@@ -38,7 +39,9 @@ char *ft_revtrim(char *src, const char *set, size_t i)
         l--;
     }
     index = 0;
-    str = (char *)malloc(sizeof(char)*(l + 1));
+    str = (char *)malloc(sizeof(char)*(l + 2));
+    if (!str)
+        return (NULL);
     while (index <= l)
     {
         str[index] = src[index];
@@ -78,4 +81,5 @@ char *ft_strtrim(char const *s1, char const *set)
     str = ft_revtrim(str, set, ft_strlen(str));
     return (str);
 }
+
 

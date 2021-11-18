@@ -6,91 +6,173 @@
 /*   By: iraqi <iraqi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 01:53:49 by iraqi             #+#    #+#             */
-/*   Updated: 2021/11/15 22:18:09 by iraqi            ###   ########.fr       */
+/*   Updated: 2021/11/18 12:30:49 by iraqi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-int ft_wordcount(char *src, char del)
+
+static  int  w_counter(char const *src, char delimiter)
 {
-    size_t i;
+    int i;
     int wc;
-    size_t slen;
     
     i = 0;
     wc = 0;
-    slen = ft_strlen(src);
-    if (slen == 0)
-        return (wc + 1);
-    if (src[i] != del && slen > 0)
-        wc = 1;
-    while (i < slen)
+    if (!src || !delimiter)
+        return (wc);
+    if (src[i] != delimiter)
+        wc++;
+    while (src[i] != '\0')
     {
-        if (src[i] != del && src[i - 1] == del)
+        if (src[i] != delimiter && src[i - 1] == delimiter)
             wc++;
         i++;
     }
-    
     return (wc);
 }
 
-char **ft_split(char const *s, char c)
+static  char **w_creator(const char *s, char delimiter, int wc)
 {
+    int i;
+    int start;
+    int end;
+    int row;
     char **res;
-    size_t wc;
-    if (!s || c == '\0')
-        return (NULL);
-    wc = ft_wordcount((char *)s,c);
-    res = malloc(sizeof(char*)*wc);
-    if(res == NULL)
-        return (NULL);
-
-    size_t i;
-    size_t j;
-    size_t x;
-    size_t y;
-    size_t t;
-    size_t u;
-    size_t len;
-    
-    len = ft_strlen(s);
+        
+    row = 0;
     i = 0;
-    u = 0;
-    j = 0;
-    while (i < len)
-    {      
-        while (s[j] == c && j < len)
-            j++;
-        x = j;
-        while (s[j] != c && j < len)
-            j++;
-        y = j - 1;
-        if (x > y)
-        {
-            res[u] = NULL;
-            break;
-        }
-        res[u] = malloc(sizeof(char)*(y - x)+2);
-        if(res[u] == NULL)
-            return (NULL);
-        t = 0;
-        while (t <= (y - x))
-        {
-            res[u][t] = (char )s[(x) + t];
-            t++;
-        }
-        res[u][t] = '\0'; 
-        i = j;
-        u++;
+    start = 0;
+    end = 0;
+    res = malloc(sizeof(char*)* (wc + 1));
+    if (!res)
+        return (NULL);
+    while (s[i] != '\0')
+    {
+        while (s[i] == delimiter && s[i] != '\0')
+            i++;
+        start = i;
+        while (s[i] != delimiter && s[i] != '\0')
+            i++;
+        end = i;
+        if (start >= end)
+           break;
+        res[row] = ft_substr(s,start,(end - start));
+        row++;
     }
+    res[row] = NULL;
     return (res);
 }
- int main(void)
- {
-    char *s = "aa\0bbb";
-	char **result = ft_split(s, '\0');
 
-    printf("%s\n", result[0]);
-    return 0;
+char    **ft_split(char const *s, char c)
+{
+    int wc;
+    char **res;
+        
+    if (!s)
+        return (NULL);
+    wc = w_counter(s,c);
+    res = w_creator(s,c, wc);
+    return (res);
 }
+        // int main(void)
+        // {
+        //     int i = 0;
+        //     char s[] = "tripouille";
+        //     char **result = ft_split(s, ' ');
+        //     while (i < 2)
+        //         printf("%s", result[i++]);
+        //     return 0;
+        // }
+// int main(void)
+// {
+//     int i = 0;
+//     char *s = "              olol";
+//     char **result = ft_split(s, ' ');
+//     while (i < 2)
+//         printf("%s", result[i++]);
+//     return 0;
+// }
+// #include <string.h>
+
+// char    *ft_copy(const char *s, int start, int len)
+// {
+//     char *t;
+//     int i;
+    
+//     i = 0;
+//     if (!s)
+//         return (NULL);
+//     t = malloc(len - start * sizeof(char) + 1);
+//     while (start < len)
+//         t[i++] = s[start++];
+//     t[i] = 0;
+//     return (t);
+// }
+
+// static  int  w_counter(char const *src, char delimiter)
+// {
+//     int i;
+//     int wc;
+    
+//     i = 0;
+//     wc = 0;
+//     if (!src || !delimiter)
+//         return (wc);
+//     if (src[i] != delimiter)
+//         wc++;
+//     while (src[i] != '\0')
+//     {
+//         if (src[i] != delimiter && src[i - 1] == delimiter)
+//             wc++;
+//         i++;
+//     }
+//     return (wc);
+// }
+
+// static  char **w_creator(const char *s, char delimiter, int wc)
+// {
+//     int i;
+//     int start;
+//     int end;
+//     int row;
+//     char **res;
+        
+//     row = 0;
+//     i = 0;
+//     start = 0;
+//     end = 0;
+//     res = malloc(sizeof(char*)*wc + 1);
+//     if (!res)
+//         return (NULL);
+//     while (s[i] != '\0')
+//     {
+//         while (s[i] == delimiter && s[i++] != '\0')
+//         start = i;
+//         while (s[i] != delimiter && s[i++] != '\0')
+//         end = i;
+//         if (start >= end || s[i + 1] == '\0')
+//             break;
+//         res[row] = ft_copy(s,start,(end - start));
+//         row++;
+//     }
+//     res[row] = NULL;
+//     return (res);
+// }
+
+// char    **ft_split(char const *s, char c)
+// {
+//     int wc;
+//     char **res;
+        
+//     if (!s)
+//         return (NULL);
+//         while (*s == c)
+//           s++;
+//     wc = w_counter(s,c);
+//     res = w_creator(s,c, wc);
+//     return (res);
+// }
+
+
 

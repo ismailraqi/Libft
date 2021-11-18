@@ -6,12 +6,12 @@
 /*   By: iraqi <iraqi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 01:51:41 by iraqi             #+#    #+#             */
-/*   Updated: 2021/11/15 00:26:52 by iraqi            ###   ########.fr       */
+/*   Updated: 2021/11/18 12:42:30 by iraqi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
+
 char *ft_substr(char const *s, unsigned int start, size_t len)
 {
     char *substr;
@@ -21,14 +21,12 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
         return (NULL);
     slen = ft_strlen(s);
     if (start >= slen)
-        len = 0;
-    if (len > (slen - start))
-        return (NULL);
-    substr = (char *)malloc(sizeof(char)*(len + 1));
+        return (ft_strdup(""));
+    substr = (char *)malloc(sizeof(char)*((slen - start) + 1));
     if (!substr)
         return (NULL);
     i = 0;
-    while (i < len)
+    while (i < len && s[i] != '\0')
     {
         substr[i] = s[start + i];
         i++;
@@ -36,4 +34,13 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
     substr[i] = '\0';
     return (substr);
 }
+// int main ()
+// {
+//     char *str = "i just want this part #############";
+// 	size_t size = 10;
+// 	int ret_size;
 
+// 	char *s = ft_substr(str, 5, size);
+//     printf("%s",s);
+//     return 0;
+// }
