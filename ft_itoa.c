@@ -6,101 +6,58 @@
 /*   By: iraqi <iraqi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 01:54:19 by iraqi             #+#    #+#             */
-/*   Updated: 2021/11/15 03:59:23 by iraqi            ###   ########.fr       */
+/*   Updated: 2021/11/18 01:18:05 by iraqi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-size_t ft_digitcounter(int n)
+int ft_counter(unsigned int lon)
 {
-    size_t i;
+    int i;
 
     i = 0;
-    if (n == 0)
-        return (i + 1);
-    while (n != 0)
+    if (lon == 0)
+        return (1);
+    while (lon != 0)
     {
-        n /= 10;    
+        lon /= 10;    
         i++;
     }
     return i;
 }
-int *ft_revtab(int *src, size_t size)
-{
-    int *tab;
-    size_t i;
-
-    i = 0;
-    tab = (int *)malloc(sizeof(int)*size);
-    if (tab == NULL)
-        return NULL;
-    while (i < size)
-    {
-        tab[i] = src[size - 1 - i];
-        i++;
-    }
-    return tab;
-}
-int *ft_digitsgeter(int n, size_t size)
-{
-    int *res;
-    size_t i;
-
-    if (n < 0)
-        n = -n;
-
-    res = (int *)malloc(sizeof(int)*size);
-    if (res == NULL)
-        return NULL;
-    i = 0;
-    while (i < size)
-    {
-        res[i] = n % 10;
-        n /= 10;
-        i++;
-    }
-    res = ft_revtab(res,size);
-    return res;
-}
+// char *ft_writer(char *res, int flag, int i, unsigned int n)
+// {
+//     if (flag)
+//         res[0] = '-';
+//     res[i--] = '\0';
+    
+        
+// }
 char *ft_itoa(int n)
 {
-    size_t dc;
-    char *res;
-    int *digits;
     int flag;
-    size_t i;
-    
+    int i;
+    unsigned int lon;
+    char *res;
+
     flag = 0;
+    lon = n;
     if (n < 0)
+    {
         flag = 1;
-    dc = ft_digitcounter(n);
-    
-    digits = ft_digitsgeter(n, dc);
-    i = 0;
-    if (n < 0)
-        dc += 1;
-    res = (char *)malloc(sizeof(char)*dc + 1);
-    if (!res)
+        lon = n * -1;
+    }
+    i = ft_counter(lon) + flag;
+    res = (char *)malloc(sizeof(char)*(i + flag));
+    if(!res)
         return (NULL);
-    if(flag)
+    if (flag)
+        res[0] = '-';
+    res[i--] = '\0';
+    while (i >= flag)
     {
-        res[i] = '-';
-        i++;
-        while (i < dc)
-        {
-            res[i] = digits[i-1] + '0';
-            i++;
-        }
+        res[i--] = (lon % 10) + '0';
+        lon /= 10;
     }
-    else
-    {
-        while (i < dc)
-        {
-            res[i] = digits[i] + '0';
-            i++;
-        }
-    }
-    res[i] = '\0';
-    return res;
+    return (res);
 }

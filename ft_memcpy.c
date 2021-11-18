@@ -6,11 +6,12 @@
 /*   By: iraqi <iraqi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 01:44:08 by iraqi             #+#    #+#             */
-/*   Updated: 2021/11/14 21:56:27 by iraqi            ###   ########.fr       */
+/*   Updated: 2021/11/17 22:44:46 by iraqi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <string.h>
 void *ft_memcpy(void *dest, const void *src, size_t n)
 {
     unsigned char *fdest;

@@ -19,6 +19,7 @@ int ft_isalnum(int a);
 int ft_isascii(int c);
 int ft_isprint(int c);
 char *ft_strchr(const char *s, char c);
+char *ft_strrchr(const char *s, char c);
 int ft_strlen(const char *s);
 int ft_strncmp(const char *s1, const char *s2, size_t n);
 void *ft_memset(void *ptr, int x, size_t n);

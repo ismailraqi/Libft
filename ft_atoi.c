@@ -6,13 +6,12 @@
 /*   By: iraqi <iraqi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 01:50:12 by iraqi             #+#    #+#             */
-/*   Updated: 2021/11/14 23:59:19 by iraqi            ###   ########.fr       */
+/*   Updated: 2021/11/18 01:21:29 by iraqi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
+
 int	ft_atoi(char *str)
 {
 	int	i;
