@@ -6,7 +6,7 @@
 /*   By: iraqi <iraqi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 01:50:12 by iraqi             #+#    #+#             */
-/*   Updated: 2021/11/18 11:01:27 by iraqi            ###   ########.fr       */
+/*   Updated: 2021/11/19 16:16:37 by iraqi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_atoi(const char *str)
 {
 	int	i;
 	int	number;
-    int flag;
+	int	flag;
 
 	i = 0;
 	flag = 1;
@@ -37,4 +37,3 @@ int	ft_atoi(const char *str)
 	}
 	return (number * flag);
 }
-

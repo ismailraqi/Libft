@@ -6,14 +6,15 @@
 /*   By: iraqi <iraqi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 01:41:57 by iraqi             #+#    #+#             */
-/*   Updated: 2021/11/14 23:16:10 by iraqi            ###   ########.fr       */
+/*   Updated: 2021/11/19 16:26:19 by iraqi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-int ft_isascii(int c)
+
+int	ft_isascii(int c)
 {
-    if (c >= 0 && c <= 127)
-        return (1);
-    return (0);
+	if (c >= 0 && c <= 127)
+		return (1);
+	return (0);
 }
