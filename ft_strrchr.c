@@ -1,5 +1,5 @@
 #include "libft.h"
-char *ft_strrchr(const char *s, char c)
+char *ft_strrchr(const char *s, int c)
 {
     int size;
     char *res;
@@ -8,7 +8,7 @@ char *ft_strrchr(const char *s, char c)
     size = ft_strlen(s);    
     while (size >= 0)
     {
-        if (s[size] == c)
+        if (s[size] == (char)c)
             return (res + size);
         size--;
     }

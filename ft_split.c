@@ -6,7 +6,7 @@
 /*   By: iraqi <iraqi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 01:53:49 by iraqi             #+#    #+#             */
-/*   Updated: 2021/11/18 12:30:49 by iraqi            ###   ########.fr       */
+/*   Updated: 2021/11/19 08:30:27 by iraqi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ static  int  w_counter(char const *src, char delimiter)
     
     i = 0;
     wc = 0;
-    if (!src || !delimiter)
+    if (src && !delimiter)
+        return (1);
+    if (!src)
         return (wc);
     if (src[i] != delimiter)
         wc++;
@@ -30,6 +32,26 @@ static  int  w_counter(char const *src, char delimiter)
         i++;
     }
     return (wc);
+}
+
+char *ft_substr2(char const *s, unsigned int start, size_t len)
+{
+    char *substr;
+    size_t i;
+
+    if (!s)
+        return (NULL);
+    substr = (char *)malloc(sizeof(char)*(len + 1));
+    if (!substr)
+        return (NULL);
+    i = 0;
+    while (i < len && s[i] != '\0')
+    {
+        substr[i] = s[start + i];
+        i++;
+    }
+    substr[i] = '\0';
+    return (substr);
 }
 
 static  char **w_creator(const char *s, char delimiter, int wc)
@@ -57,7 +79,14 @@ static  char **w_creator(const char *s, char delimiter, int wc)
         end = i;
         if (start >= end)
            break;
-        res[row] = ft_substr(s,start,(end - start));
+        res[row] = ft_substr2(s,start,(end - start));
+        if (res[row] == NULL)
+        {
+            while (res[--row])
+                free(res[row]);
+            free(res);
+            return (NULL);
+        }
         row++;
     }
     res[row] = NULL;

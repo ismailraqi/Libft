@@ -6,7 +6,7 @@
 /*   By: iraqi <iraqi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 01:51:41 by iraqi             #+#    #+#             */
-/*   Updated: 2021/11/18 12:42:30 by iraqi            ###   ########.fr       */
+/*   Updated: 2021/11/19 13:46:38 by iraqi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,15 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
     char *substr;
     size_t i;
     size_t slen;
+    
     if (!s)
         return (NULL);
     slen = ft_strlen(s);
     if (start >= slen)
         return (ft_strdup(""));
-    substr = (char *)malloc(sizeof(char)*((slen - start) + 1));
+    if (len >= (slen - start))
+        len = slen - start;
+    substr = (char *)malloc(sizeof(char)*(len + 1));
     if (!substr)
         return (NULL);
     i = 0;
@@ -36,11 +39,9 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
 }
 // int main ()
 // {
-//     char *str = "i just want this part #############";
-// 	size_t size = 10;
-// 	int ret_size;
+// 	char *s = "all of this !";
+// 	char *ret = ft_substr(s, 0, 42000);
 
-// 	char *s = ft_substr(str, 5, size);
-//     printf("%s",s);
+//     printf("%s",ret);
 //     return 0;
 // }
